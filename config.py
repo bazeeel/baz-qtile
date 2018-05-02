@@ -151,20 +151,28 @@ def init_keys():
             # GUI Apps
             Key(
                 [mod], "w", 
-                lazy.spawn("chromium")
+                lazy.function(app_or_group('WWW', "chromium"))
                 ),
             Key(
                 [mod], "t", 
-                lazy.spawn("spotify")
+                lazy.function(app_or_group('MEDIA', "spotify"))
                 ),
             Key(
                 [mod, "shift"], "Return",
-                lazy.spawn("thunar")
+                lazy.function(app_or_group('THUN', "thunar"))
                 ),
             Key(
                 [mod], "g", 
-                lazy.spawn("geany")
+                lazy.function(app_or_group('DOC', "geany"))
                 ),
+            Key(
+                [mod], "F1", 
+                lazy.function(app_or_group('CHAT', "discord"))
+                ),
+            Key(
+                [mod], "F2", 
+                lazy.function(app_or_group('VIDO', "mpv"))
+                ),    
             # Terminal Apps
             Key(
                 [mod], "d",                                  # Keypad 0
@@ -225,7 +233,7 @@ def init_colors():
     
 def init_group_names():
     return [("WWW", {'layout': 'max'}),
-            ("THUN", {'layout': 'max'}),
+            ("THUN", {'layout': 'tile'}),
             ("TERM", {'layout': 'monadtall'}),
             ("DOC", {'layout': 'monadtall'}),
             ("VIDO", {'layout': 'floating'}),
@@ -281,6 +289,16 @@ def init_layouts():
             #layout.Matrix(**layout_theme),
             #layout.Zoomy(**layout_theme),
 
+
+# kulcs
+def app_or_group(group, app):
+    def f(qtile):
+        if qtile.groupMap[group].windows:
+            qtile.groupMap[group].cmd_toscreen()
+        else:
+            qtile.groupMap[group].cmd_toscreen()
+            qtile.cmd_spawn(app)
+    return f
 
 ##### WIDGETS #####
 
@@ -391,6 +409,8 @@ def init_widgets_list():
               ]       
     return widgets_list
 
+
+#Key
 
 ##### SCREENS ##### (TRIPLE MONITOR SETUP)
 
