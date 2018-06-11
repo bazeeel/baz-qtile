@@ -11,8 +11,6 @@ from libqtile.config import Key, Screen, Group, Drag, Click, Match
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.widget import Spacer, Pacman, LaunchBar, CheckUpdates
-#from plasma import Plasma
-from libqtile.config import EzKey
 
 
 
@@ -152,7 +150,11 @@ def init_keys():
             # GUI Apps
             Key(
                 [mod], "w", 
-                lazy.spawn("chromium")
+                lazy.function(app_or_group("", "chromium"))
+                ),
+            Key(
+                [mod, "shift"], "w", 
+                lazy.function(app_or_group("", "chromium https://arcolinux.info"))
                 ),
             Key(
                 [mod], "Print", 
@@ -176,12 +178,12 @@ def init_keys():
                 ),
             Key(
                 [mod], "g", 
-                lazy.function(app_or_group("", "geany"))
+                lazy.function(app_or_group("", "subl3"))
                 ),
             # Terminal Apps
             Key(
                 [mod], "d",                                  # Keypad 0
-                lazy.spawncmd()                                      # Run Dialog
+                lazy.spawn("rofi -show run")                                      # Run Dialog
                 ),
             Key(
                 [mod], "KP_End",                                     # Keypad 1
@@ -241,10 +243,10 @@ def init_group_names():
     return [("", {'layout': 'max'}),
             ("", {'layout': 'max'}),
             ("", {'layout': 'bsp'}),
-            ("", {'layout': 'floating'}),
+            ("", {'layout': 'max'}),
             ("", {'layout': 'tile'}),
             ("", {'layout': 'tile'}),
-            ("", {'layout': 'floating'})]
+            ("", {'layout': 'max'})]
             
 
            
@@ -294,9 +296,9 @@ def init_layouts():
             layout.Slice(side="left", width=192, name="gimp", role="gimp-toolbox",
                 fallback=layout.Slice(side="right", width=256, role="gimp-dock",
                 fallback=layout.Stack(num_stacks=1, **border_args))),
-            layout.Floating(**layout_theme)]
-            #layout.Matrix(**layout_theme),
-            #layout.Zoomy(**layout_theme),
+            layout.Floating(**layout_theme),
+            layout.Matrix(**layout_theme),
+            layout.Zoomy(**layout_theme)]
 
 
 
@@ -486,9 +488,13 @@ def init_widgets_screen2():
     return widgets_screen2                       # Monitor 2 will display all widgets in widgets_list
     
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=35))]
+    return [Screen(bottom=bar.Gap(size=35),
+                    top=bar.Gap(size=35)
+        )]
             #Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=35)), 
             #Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=35))]
+
+screens = init_screens()
 
 
 ##### FLOATING WINDOWS #####
@@ -512,7 +518,7 @@ def init_mouse():
 
 if __name__ in ["config", "__main__"]:
     mod = "mod4"                                            # Sets mod key to SUPER/WINDOWS
-    myTerm = "terminator"                                      # My terminal of choice
+    myTerm = "urxvt"                                      # My terminal of choice
     myConfig = "~/.config/qtile/config.py"        # Qtile config file location 
 
     colors = init_colors()
@@ -533,9 +539,9 @@ if __name__ in ["config", "__main__"]:
 
 ##### SETS GROUPS KEYBINDINGS #####
 
-for i, (name, kwargs) in enumerate(group_names, 1):
-    keys.append(Key([mod], str(i), lazy.group[name].toscreen()))          # Switch to another group
-    keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name)))   # Send current window to another group
+#for i, (name, kwargs) in enumerate(group_names, 1):
+#    keys.append(Key([mod], str(i), lazy.group[name].toscreen()))          # Switch to another group
+#    keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name)))   # Send current window to another group
      
                         
 ##### STARTUP APPLICATIONS #####

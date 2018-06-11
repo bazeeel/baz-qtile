@@ -5,16 +5,13 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#export TERM="xterm-256color" 
-
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh 
-
 export HISTCONTROL=ignoreboth:erasedups
 
 PS1='[\u@\h \W]\$ '
+
+if [ -d "$HOME/.bin" ] ;
+	then PATH="$HOME/.bin:$PATH"
+fi
 
 #list
 alias ls='ls --color=auto'
@@ -25,7 +22,6 @@ alias l.="ls -A | egrep '^\.'"
 
 #fix obvious typo's
 alias cd..='cd ..'
-alias sl="ls"
 alias pdw="pwd"
 
 ## Colorize the grep command output for ease of use (good for log files)##
@@ -90,8 +86,11 @@ shopt -s dotglob
 shopt -s histappend # do not overwrite history
 shopt -s expand_aliases # expand aliases
 
+neofetch
 EDITOR=nano
 
-
-
-
+#Powerline
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh

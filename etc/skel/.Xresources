@@ -56,11 +56,11 @@ URxvt*depth:            32
 !URxvt*transparent:      true
 !URxvt*shading:          30
 !URxvt*background:      rgba:0000/0000/0000/AAAA
-!URxvt*background:      [80]#404552
-URxvt*background:       [70]#3F424A
+!URxvt*background:      [80]#000000
+URxvt*background:       [70]#000000
 URxvt*foreground:       #F8F8FF
-URxvt*underlineColor:   #4682B4
-URxvt*highlightColor:   #4682B4
+URxvt*underlineColor:   #EF2815
+URxvt*highlightColor:   #C66B34
 URxvt*throughColor:     Blue
 URxvt*cursorColor:      #c5c8c6
 URxvt*scrollBar:        false
@@ -71,7 +71,7 @@ URxvt*internalBorder:   0
 URxvt*externalBorder:   0
 URxvt*colorIT:      	#87af5f
 URxvt*colorBD:      	#c5c8c6
-URxvt*colorUL:      	#87afd7
+URxvt*colorUL:      	#C66B34
 
 
 ! colors
@@ -83,22 +83,22 @@ URxvt*color4: #506070
 URxvt*color5: #dc8cc3
 URxvt*color6: #8cd0d3
 URxvt*color7: #dcdccc
-URxvt*color8: #79A9FF
+URxvt*color8: #C66B34
 URxvt*color9: #da6e6e
 URxvt*color10: #c3bf9f
 URxvt*color11: #f0dfaf
-URxvt*color12: #94bff3
-URxvt*color13: #ec93d3
-URxvt*color14: #93e0e3
+URxvt*color12: #C66B34
+URxvt*color13: #C66B34
+URxvt*color14: #C66B34
 URxvt*color15: #ffffff
 
 ! fonts
 URxvt*letterSpace: 	    		1
-URxvt*font:                 	xft:Inconsolata for Powerline:pixelsize=12:antialias=false
-URxvt*imFont:               	xft:Monospace:regular:size=13
-URxvt*boldFont:             	xft:Monospace:bold:size=13
-URxvt*italicFont:           	xft:Monospace:italic:size=13
-URxvt*boldItalicFont:     		xft:Monospace:regular:size=13
+URxvt*font:                 	xft:Inconsolata for Powerline:pixelsize=17:antialias=false
+URxvt*imFont:               	xft:Inconsolata for Powerline:size=13
+URxvt*boldFont:             	xft:Inconsolata for Powerline:Bold:size=13
+URxvt*italicFont:           	xft:Inconsolata for Powerline:Italic:size=13
+URxvt*boldItalicFont:     		xft:Inconsolata for Powerline:size=13
 ! run :.!fc-list | grep <font-name>
 
 ! perl extensions
@@ -146,7 +146,7 @@ UXTerm*termName: xterm-256color
 
 UXTerm*cursorColor:        white
 UXTerm*VT100.geometry:     90x30
-UXTerm*font:               Monospace
+UXTerm*font:               Inconsolata
 UXTerm*faceSize:		   12
 UXTerm*dynamicColors:      true
 UXTerm*utf8:               2

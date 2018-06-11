@@ -4,7 +4,7 @@ set -e
 sudo pacman -Syy
 
 # pacman packages qtile
-sudo pacman -S feh polkit polkit-gnome compton termite python-xdg  --needed --noconfirm
+sudo pacman -S feh polkit polkit-gnome compton termite python-xdg ranger mpd ncmpcpp  --needed --noconfirm
 
 # Thunar
 sudo pacman -S thunar gvfs tumbler thunar-volman thunar-archive-plugin thunar-media-tags-plugin  --needed --noconfirm
@@ -19,7 +19,7 @@ sudo pacman -S  geany --needed --noconfirm
 #sudo pacman -S xfce4-notifyd --needed --noconfirm
 
 # Browser
-sudo pacman -S chromium  --needed --noconfirm
+yaourt -S google-chrome vivaldi-snapshot spotify --needed --noconfirm
 
 # firefox  hungarian lang
 #sudo pacman -S  firefox-i18n-hu --needed --noconfirm
@@ -44,7 +44,7 @@ sudo pacman -S ttf-inconsolata --needed --noconfirm
 sudo pacman -S neofetch --needed --noconfirm
 
 # AUR packages
-yaourt -S ttf-font-awesome otf-font-awesome pasystray-gtk3-git  --noconfirm
+yaourt -S ttf-font-awesome otf-font-awesome pasystray-gtk3-git   --noconfirm
 
 #Pamac
 #yaourt -S pamac-aur  --noconfirm
