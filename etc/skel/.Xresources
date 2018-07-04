@@ -83,13 +83,13 @@ URxvt*color4: #506070
 URxvt*color5: #dc8cc3
 URxvt*color6: #8cd0d3
 URxvt*color7: #dcdccc
-URxvt*color8: #C66B34
+URxvt*color8: #CCA97E
 URxvt*color9: #da6e6e
 URxvt*color10: #c3bf9f
 URxvt*color11: #f0dfaf
-URxvt*color12: #C66B34
-URxvt*color13: #C66B34
-URxvt*color14: #C66B34
+URxvt*color12: #CCA97E
+URxvt*color13: #CCA97E
+URxvt*color14: #CCA97E
 URxvt*color15: #ffffff
 
 ! fonts

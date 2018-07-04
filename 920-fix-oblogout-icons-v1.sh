@@ -13,22 +13,17 @@ set -e
 #
 ##################################################################################################################
 
+echo "Sardi icons applied when logging out or shutdown or ..."
 
-sudo pacman -S --noconfirm --needed cups cups-pdf
+sudo sed -i 's/buttontheme = oxygen/buttontheme = Sardi-Oblogout/g' /etc/oblogout.conf
+#sudo sed -i 's/'buttontheme = oxygen'/'buttontheme = adeos-branco'/g' /etc/oblogout.conf
+#sudo sed -i 's/'buttontheme = oxygen'/'buttontheme = adeos-branco-mono'/g' /etc/oblogout.conf
+#sudo sed -i 's/'buttontheme = oxygen'/'buttontheme = adeos-branco-cores'/g' /etc/oblogout.conf
 
-#first try if you can print without footmatic
-#sudo pacman -S foomatic-db-engine --noconfirm --needed
-#sudo pacman -S foomatic-db foomatic-db-ppds foomatic-db-nonfree-ppds foomatic-db-gutenprint-ppds --noconfirm --needed
-sudo pacman -S ghostscript gsfonts gutenprint --noconfirm --needed
-sudo pacman -S gtk3-print-backends --noconfirm --needed
-sudo pacman -S libcups --noconfirm --needed
-sudo pacman -S hplip --noconfirm --needed
-sudo pacman -S system-config-printer --noconfirm --needed
-
-sudo systemctl enable org.cups.cupsd.service
-
-echo "After rebooting it will work"
+echo "changing the application to lock your system"
+sudo sed -i 's/lock = xtrlock &/lock = slimlock/g' /etc/oblogout.conf
+sudo sed -i 's/logout = openbox --exit/logout = pkill bspwm/g' /etc/oblogout.conf
 
 echo "################################################################"
-echo "#########   printer management software installed     ##########"
+echo "####                  ICONS ARE NOW APPLIED               ######"
 echo "################################################################"

@@ -12,20 +12,14 @@ set -e
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
 ##################################################################################################################
-echo "#################################################"
-echo "If it feels like the downloads are too slow"
-echo "Stop the installation with CTRL + C"
-echo "and run the alias - mirror in the terminal"
-echo "#################################################"
 
-sudo pacman -Syyu
-sudo pacman -S lightdm  --noconfirm --needed
-sudo pacman -S qtile python-setuptools python-xdg --noconfirm --needed
-sudo systemctl enable lightdm.service -f
-sudo systemctl set-default graphical.target
+# [    0.000000] [Firmware Bug]: TSC_DEADLINE disabled due to Errata; please update microcode to version: 0x52 (or later)
 
 
-#Remove anything you do not like from the installed applications
+sudo pacman -S intel-ucode --noconfirm
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-#sudo pacman -R ...
-#sudo pacman -R xfce4-artwork --noconfirm
+
+echo "################################################################"
+echo "####                             Fix done                 ######"
+echo "################################################################"
