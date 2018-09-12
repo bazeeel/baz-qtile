@@ -44,7 +44,7 @@ format-offset =
 ; Nord theme ============
 background = #4A2F343F
 foreground = #CCA97E
-alert = #4ADD2910
+alert = #DD2910
 volume-min = #a3be8c
 volume-med = #ebcb8b
 volume-max = #bf616a
@@ -216,7 +216,7 @@ polybar - A fast and easy-to-use status bar
 
 [bar/mainbar-qtile]
 ; = ${env:MONITOR:fallback-value}
-monitor = ${env:MONITOR:DP-1}
+monitor = ${env:MONITOR:HDMI1}
 width = 100%
 height = 30
 ;offset-x = 1%
@@ -228,7 +228,7 @@ separator = |
 
 background = ${colors.background}
 foreground = ${colors.foreground}
-;format-underline = #3EC13F
+;format-underline = 
 
 
 ;line-size = 4
@@ -238,12 +238,12 @@ foreground = ${colors.foreground}
 override-redirect = true
 ;enable-ipc = true
 
-border-size = 0
+border-size = 2
 ;border-left-size = 0
 ;border-right-size = 25
 ;border-top-size = 0
 ;border-bottom-size = 25
-border-color = #00000000
+border-color = #CCA97E
 
 padding-left = 0
 padding-right = 1
@@ -252,12 +252,12 @@ module-margin-left = 3
 module-margin-right = 3
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = NotoSans-Regular:size=10;0
-font-1 = fontawesome-regular:size=16:0
-font-2 = NotoMono-Regular: size=10;0
+font-0 = NotoSans-Regular:size=13;0
+font-1 = fontawesome-regular:size=14:0
+font-2 = NotoMono-Regular: size=13;0
 
 modules-left = ewmh 
-modules-center = weather
+modules-center = xwindow
 modules-right = memory2 cpu2 date 
 
 tray-detached = false
@@ -610,7 +610,7 @@ label-monitor = %name%
 
 label-active = %name%
 label-active-foreground = ${colors.foreground}
-label-active-background = #CCA97E
+label-active-background = #00CCA97E
 label-active-padding = 2
 
 label-occupied = %name%

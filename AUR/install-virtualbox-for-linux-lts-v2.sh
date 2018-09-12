@@ -12,15 +12,15 @@ set -e
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
 ##################################################################################################################
+echo "################################################################"
+echo "##  This script assumes you have the linux-lts kernel running ##"
+echo "################################################################"
 
-echo "AUR - DESKTOP SPECIFIC APPLICATIONS "
-
-#sh AUR-DS/install-i3blocks-v*.sh
-
-sh AUR-DS/install-python-pywal-v*.sh
-
-sh AUR/install-yad-v*.sh
+sudo pacman -S --noconfirm --needed virtualbox
+sudo pacman -S --needed virtualbox-host-dkms
+sudo pacman -S --noconfirm --needed linux-lts-headers
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "################################################################"
-echo "####       Software from AUR-DS folder installed          ######"
+echo "#########           You got to reboot.                 #########"
 echo "################################################################"

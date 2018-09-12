@@ -13,14 +13,25 @@ set -e
 #
 ##################################################################################################################
 
-echo "AUR - DESKTOP SPECIFIC APPLICATIONS "
 
-#sh AUR-DS/install-i3blocks-v*.sh
+########################################
+########        C O N K Y      #########
+########################################
 
-sh AUR-DS/install-python-pywal-v*.sh
-
-sh AUR/install-yad-v*.sh
 
 echo "################################################################"
-echo "####       Software from AUR-DS folder installed          ######"
+echo "Downloading the files from github to tmp directory"
+
+rm -rf /tmp/aureola
+
+git clone https://github.com/erikdubois/Aureola /tmp/aureola
+
+# if there is already a folder in tmp, delete or else do nothing
+[ -d ~/.aureola ] && rm -rf ~/.aureola
+mv -f /tmp/aureola ~/.aureola
+
+rm -rf /tmp/aureola
+
+echo "################################################################"
+echo "###################    aureola installed  ######################"
 echo "################################################################"

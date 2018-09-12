@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e
 ##################################################################################################################
 # Author	:	Erik Dubois
 # Website	:	https://www.erikdubois.be
@@ -13,14 +13,14 @@ set -e
 #
 ##################################################################################################################
 
-echo "AUR - DESKTOP SPECIFIC APPLICATIONS "
+echo '#[arcolinux_repo_testing]
+#SigLevel = Required DatabaseOptional
+#Server = https://arcolinux.github.io/arcolinux_repo_testing/$arch
 
-#sh AUR-DS/install-i3blocks-v*.sh
-
-sh AUR-DS/install-python-pywal-v*.sh
-
-sh AUR/install-yad-v*.sh
+[arcolinux_repo]
+SigLevel = Required DatabaseOptional
+Server = https://arcolinux.github.io/arcolinux_repo/$arch' | sudo tee --append /etc/pacman.conf
 
 echo "################################################################"
-echo "####       Software from AUR-DS folder installed          ######"
+echo "###                  arcolinux repo added                   ####"
 echo "################################################################"

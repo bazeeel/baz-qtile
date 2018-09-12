@@ -13,14 +13,14 @@ set -e
 #
 ##################################################################################################################
 
-echo "AUR - DESKTOP SPECIFIC APPLICATIONS "
+echo "################################################################"
+echo "##  This script assumes you have the linux kernel running     ##"
+echo "################################################################"
 
-#sh AUR-DS/install-i3blocks-v*.sh
-
-sh AUR-DS/install-python-pywal-v*.sh
-
-sh AUR/install-yad-v*.sh
+sudo pacman -S --needed --noconfirm virtualbox-host-modules-arch
+sudo pacman -S --noconfirm --needed virtualbox
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "################################################################"
-echo "####       Software from AUR-DS folder installed          ######"
+echo "#########           You got to reboot.                 #########"
 echo "################################################################"

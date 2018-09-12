@@ -76,3 +76,25 @@ echo "################################################################"
 echo "removing all folders and files unnecessary for this desktop from .local"
 echo "################################################################"
 echo
+
+sudo pacman -S --noconfirm --needed discord
+#sudo pacman -S --noconfirm --needed dropbox
+#sudo pacman -S --noconfirm --needed insync
+sudo pacman -S --noconfirm --needed spotify wmctrl
+
+#install zsh
+
+yay -S oh-my-zsh-git antigen-git --noconfirm
+
+cp /usr/share/zsh/share/antigen.zsh ~/.antigen.zsh
+
+rm -rf ~/.antigen
+
+cp .zshrc ~/.zshrc
+
+chsh -s $( which zsh )
+
+echo "################################################################"
+echo "Finish copying"
+echo "################################################################"
+

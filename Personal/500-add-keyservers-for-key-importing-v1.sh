@@ -12,15 +12,14 @@ set -e
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
 ##################################################################################################################
+[ -d $HOME"/.gnupg" ] || mkdir -p $HOME"/.gnupg"
 
-echo "AUR - DESKTOP SPECIFIC APPLICATIONS "
+echo '
 
-#sh AUR-DS/install-i3blocks-v*.sh
-
-sh AUR-DS/install-python-pywal-v*.sh
-
-sh AUR/install-yad-v*.sh
+keyserver hkp://pool.sks-keyservers.net:80
+keyserver hkps://hkps.pool.sks-keyservers.net:443
+keyserver hkp://ipv4.pool.sks-keyservers.net:11371' | sudo tee --append ~/.gnupg/gpg.conf
 
 echo "################################################################"
-echo "####       Software from AUR-DS folder installed          ######"
+echo "###                  keyservers added                       ####"
 echo "################################################################"

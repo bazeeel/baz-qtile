@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e
 ##################################################################################################################
 # Author	:	Erik Dubois
 # Website	:	https://www.erikdubois.be
@@ -13,14 +13,13 @@ set -e
 #
 ##################################################################################################################
 
-echo "AUR - DESKTOP SPECIFIC APPLICATIONS "
 
-#sh AUR-DS/install-i3blocks-v*.sh
+echo '
 
-sh AUR-DS/install-python-pywal-v*.sh
-
-sh AUR/install-yad-v*.sh
+[archlinuxfr]
+SigLevel = Never
+Server = http://repo.archlinux.fr/$arch' | sudo tee --append /etc/pacman.conf
 
 echo "################################################################"
-echo "####       Software from AUR-DS folder installed          ######"
+echo "###                 archlinuxfr repo added                  ####"
 echo "################################################################"

@@ -13,14 +13,20 @@ set -e
 #
 ##################################################################################################################
 
-echo "AUR - DESKTOP SPECIFIC APPLICATIONS "
 
-#sh AUR-DS/install-i3blocks-v*.sh
 
-sh AUR-DS/install-python-pywal-v*.sh
+echo "Making sure firefox looks great in dark themes like Arc-Dark"
+echo "Firefox must have started once. The directory will not exist otherwise."
 
-sh AUR/install-yad-v*.sh
+sh firefox &
+sleep 1
+killall firefox
+
+cp -r settings/firefox/chrome/ ~/.mozilla/firefox/*.default
+
+echo "Restart firefox to see the effect"
+
 
 echo "################################################################"
-echo "####       Software from AUR-DS folder installed          ######"
+echo "#########       firefox  settings installed     ################"
 echo "################################################################"

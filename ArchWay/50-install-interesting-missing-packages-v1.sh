@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e
 ##################################################################################################################
 # Author	:	Erik Dubois
 # Website	:	https://www.erikdubois.be
@@ -13,14 +13,8 @@ set -e
 #
 ##################################################################################################################
 
-echo "AUR - DESKTOP SPECIFIC APPLICATIONS "
-
-#sh AUR-DS/install-i3blocks-v*.sh
-
-sh AUR-DS/install-python-pywal-v*.sh
-
-sh AUR/install-yad-v*.sh
+sudo pacman -S network-manager-applet --noconfirm --needed
 
 echo "################################################################"
-echo "####       Software from AUR-DS folder installed          ######"
+echo "###                  archlinuxfr hashtagged out             ####"
 echo "################################################################"

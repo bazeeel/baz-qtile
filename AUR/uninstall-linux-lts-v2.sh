@@ -13,14 +13,9 @@ set -e
 #
 ##################################################################################################################
 
-echo "AUR - DESKTOP SPECIFIC APPLICATIONS "
-
-#sh AUR-DS/install-i3blocks-v*.sh
-
-sh AUR-DS/install-python-pywal-v*.sh
-
-sh AUR/install-yad-v*.sh
+sudo pacman -R linux-lts linux-lts-headers
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "################################################################"
-echo "####       Software from AUR-DS folder installed          ######"
+echo "#########           You got to reboot.                 #########"
 echo "################################################################"

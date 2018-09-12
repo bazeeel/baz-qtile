@@ -13,14 +13,20 @@ set -e
 #
 ##################################################################################################################
 
-echo "AUR - DESKTOP SPECIFIC APPLICATIONS "
+echo '
 
-#sh AUR-DS/install-i3blocks-v*.sh
+#[arcolinux_repo_testing]
+#SigLevel = Required DatabaseOptional
+#Server = https://arcolinux.github.io/arcolinux_repo_testing/$arch
 
-sh AUR-DS/install-python-pywal-v*.sh
+[arcolinux_repo]
+SigLevel = Required DatabaseOptional
+Server = https://arcolinux.github.io/arcolinux_repo/$arch
 
-sh AUR/install-yad-v*.sh
+[arcolinux_repo_3party]
+SigLevel = Required DatabaseOptional
+Server = https://arcolinux.github.io/arcolinux_repo_3party/$arch' | sudo tee --append /etc/pacman.conf
 
 echo "################################################################"
-echo "####       Software from AUR-DS folder installed          ######"
+echo "###                  arcolinux repo added                   ####"
 echo "################################################################"

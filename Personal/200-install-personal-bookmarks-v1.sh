@@ -13,14 +13,12 @@ set -e
 #
 ##################################################################################################################
 
-echo "AUR - DESKTOP SPECIFIC APPLICATIONS "
+echo "Copy bookmarks"
 
-#sh AUR-DS/install-i3blocks-v*.sh
+[ -d $HOME"/.config/gtk-3.0" ] || mkdir -p $HOME"/.config/gtk-3.0"
 
-sh AUR-DS/install-python-pywal-v*.sh
-
-sh AUR/install-yad-v*.sh
+cp -r settings/bookmarks/* ~/.config/gtk-3.0/
 
 echo "################################################################"
-echo "####       Software from AUR-DS folder installed          ######"
+echo "#########      bookmarks  copied                ################"
 echo "################################################################"

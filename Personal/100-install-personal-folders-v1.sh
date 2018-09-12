@@ -13,14 +13,16 @@ set -e
 #
 ##################################################################################################################
 
-echo "AUR - DESKTOP SPECIFIC APPLICATIONS "
+echo "Creating common folders in correct language"
+xdg-user-dirs-update
+xdg-user-dirs-update --force
 
-#sh AUR-DS/install-i3blocks-v*.sh
+echo "Creating private folders we use later"
 
-sh AUR-DS/install-python-pywal-v*.sh
-
-sh AUR/install-yad-v*.sh
+[ -d $HOME"/.icons" ] || mkdir -p $HOME"/.icons"
+[ -d $HOME"/.themes" ] || mkdir -p $HOME"/.themes"
+[ -d $HOME"/.fonts" ] || mkdir -p $HOME"/.fonts"
 
 echo "################################################################"
-echo "####       Software from AUR-DS folder installed          ######"
+echo "###       personal folders created or existed already       ####"
 echo "################################################################"
