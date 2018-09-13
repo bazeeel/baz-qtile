@@ -294,7 +294,7 @@ reverse-scroll = true
 
 pin-workspaces = true
 
-ws-icon-0 = 1; 
+ws-icon-0 = 1; 
 ws-icon-1 = 2; 
 ws-icon-2 = 3; 
 ws-icon-3 = 4; 
@@ -599,35 +599,51 @@ enable-click = true
 ; Default: true
 enable-scroll = true
 
-icon-0 = WEB;
-icon-1 = NEWS;
-icon-2 = MEDIA;
-icon-3 = CHAT;
-icon-4 = MISC;
-#icon-5 = 6;
-format = <label-state>
-label-monitor = %name%
+;       v     
 
-label-active = %name%
-label-active-foreground = ${colors.foreground}
-label-active-background = #00CCA97E
+icon-1 = 1;
+icon-2 = 2;
+icon-3 = 3;
+icon-4 = 4;
+icon-5 = 5;
+icon-6 = 6;
+icon-7 = 7;
+icon-8 = 8;
+icon-9 = 9;
+icon-0 = 0;
+icon-10 = scratchpad;
+icon-default = " "
+
+
+format = <label-state> 
+;label-monitor = %icon% 
+
+
+label-active =  %icon%
+label-active-foreground = #FE7C00
+label-active-background = #000
 label-active-padding = 2
 
-label-occupied = %name%
-label-occupied-foreground = ${colors.foreground}
-label-occupied-background = #3B78C2
-label-occupied-underline = #BB5158
+label-focused = %icon%
+label-focused-foreground = #FF0000
+label-focused-background = #00000000
+label-focused-padding = 2
+
+;label-occupied = %icon%
+label-occupied-foreground = #FF0000
+label-occupied-background = #000
 label-occupied-padding = 2
 
-label-urgent = %name%
-label-urgent-foreground = ${colors.foreground}
-label-urgent-background = ${colors.alert}
-label-urgent-underline = ${colors.alert}
+label-urgent = %icon%
+label-urgent-foreground = #FF0000
+label-urgent-background = #000
+;label-urgent-underline = ${colors.alert}
 label-urgent-padding = 2
 
 
-label-empty = %name%
-label-empty-foreground = #55
+label-empty = %icon%
+label-empty-foreground = #00800
+label-enpty-background = #000
 label-empty-padding = 2
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
