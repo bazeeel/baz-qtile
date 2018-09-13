@@ -42,23 +42,33 @@ except ImportError:
     pass
 
 mod = "mod4"
-myTerm="urxvt"
+#myTerm="urxvt"
 myBrowser="chromium"
 
 
 cls_grp_dict = {
     "luakit": "1", "Firefox": "1", "Opera": "1", "Google-chrome": "1",
-    "Chromium": "1", "Vivaldi-stable": "1", "Zathura": "2", "libreoffice-writer": "2", "libreoffice": "2",
-    "Leafpad": "2", "kate": "2", "Pluma": "2", "Mousepad": "2", "kwrite": "2", "Geany": "2", "Gedit": "2", 
-    "Code": "2", "Atom": "2", "UXTerm": "3", "Termite": "3", "Terminator": "3", "URxvt": "3", "XTerm": "3", 
-    "mlterm": "3", "Lxterminal": "3", "discord": "4", "Gimp": "5", "Gthumb":"5", "Ristretto":"5", "Gpicview":"5", 
-    "VirtualBox": "6", "transmission-gtk": "6", "calibre": "6", "Pamac-updater": "6", "mpv": "7", "vlc": "7", "MPlayer": "7", "smplayer": "7", 
-    "Gnome-mpv": "7", "Pcmanfm": "8", "Thunar": "8", "thunar": "8", "dolphin": "8", "Clementine": "9",
-    "Rhythmbox": "9", "Pragha": "9", "Spotify": "9",
+    "Chromium": "1", "Vivaldi-stable": "1", "Midori": "2", "Dillo": "2",
+    "Netsurf-gtk3": "2", "QupZilla": "2", "Uget-gtk": "2", "Tor Browser": "1",
+    "Waterfox": "1", "UXTerm": "3", "Termite": "3", "Terminator": "3",
+    "URxvt": "3", "mlterm": "3", "Lxterminal": "3",
+    "XTerm": "3", "discord": "4", "Pcmanfm": "8", "Thunar": "8", "dolphin": "8", "Caja": "8",
+    "Catfish": "8", "Zathura": "5", "libreoffice-writer": "5", "libreoffice": "5",
+    "Leafpad": "5", "kate": "5", "Pluma": "5", "Mousepad": "5",
+    "kwrite": "5", "Geany": "5", "Gedit": "5", "Code": "5",
+    "Atom": "5", "Gimp": "6", "Gthumb": "6", "org.kde.gwenview": "6",
+    "Ristretto": "6", "lximage-qt": "6", "Eom": "6", "Gpicview": "6",
+    "vlc": "7", "xv/mplayer": "7", "Clementine": "7", "MPlayer": "7",
+    "smplayer": "7", "mpv": "7", "Gnome-mpv": "7", "Rhythmbotx": "7",
+    "Pragha": "7", "Steam": "8", "Wine": "8", "thunar": "8",
+    "PlayOnLinux": "8", "VirtualBox": "9", "okular": "9", "calibre": "9",
+    "octopi": "9", "Pamac-updater": "9", "Pamac-manager": "9", "Lxtask": "9",
+    "Dukto": "9", "QuiteRss": "9", "Filezilla": "9",
+    "jetbrains-pycharm-ce": "5",
 }
 
 role_grp_dict = {
-    "browser": "1", "gimp-image-window": "5", 
+    "browser": "1", "gimp-image-window": "5", "filemanager": "8",
 
 }
 
@@ -84,64 +94,62 @@ group_inits = [
 
 
 group_matches = [
-    
-    # 1 Web
+
     [Match(wm_class=[
         "luakit", "Firefox", "Opera", "Google-chrome",
         "Chromium", "Vivaldi-stable", "Midori",
         "Dillo", "Netsurf-gtk3", "QupZilla",
         "Uget-gtk", "Tor Browser", "Waterfox",
-    ]), ],
-    
-    # 2 Edit
+    ], role=["browser"]), ],
+
     [Match(wm_class=[
         "Zathura", "libreoffice-writer", "libreoffice",
         "Leafpad", "kate", "Pluma", "Mousepad", "kwrite",
         "Geany", "Gedit", "Code", "Atom",
+        "jetbrains-pycharm-ce",
     ]), ],
-    
-    # 3 Term
+
     [Match(wm_class=[
         "UXTerm", "Termite", "Terminator",
         "URxvt",
         "XTerm", "mlterm", "Lxterminal",
     ]), ],
-    
-    # 4 Chat
+
     [Match(wm_class=[
         "discord",
     ]), ],
-    
-    # 5 ImageViewers
+
     [Match(wm_class=[
-        "Gimp", "Gthumb", "Ristretto", 
+        "Gimp", "Gthumb", "org.kde.gwenview",
+        "Ristretto", "lximage-qt", "Eom",
         "Gpicview",
-    ]), ],
-    
-    # 6 Boxes
+    ], role=["gimp-image-window"]), ],
+
+    None,
+
     [Match(wm_class=[
-        "VirtualBox", "calibre",
-        "Pamac-updater", "transmission-gtk",
-    ]), ],   
-    
-    # 7 Video
-    [Match(wm_class=[
-        "mpv", "vlc",
-        "MPlayer", "smplayer", "Gnome-mpv",
+        "VirtualBox", "okular", "calibre",
+        "octopi", "Pamac-updater",
+        "Pamac-manager", "Lxtask",
+        "Dukto", "QuiteRss",
+        "Filezilla",
     ]), ],
-    
-    # 8 Filemanager
+
     [Match(wm_class=[
         "Pcmanfm", "Thunar", "thunar", "dolphin",
-    ]), ],
-    
-    # 9 Music
+        "Caja", "Catfish",
+    ], role=["filemanager"]), ],
+
     [Match(wm_class=[
-        "Clementine",
-        "Rhythmbox", "Pragha", "Spotify", 
+        "vlc", "xv/mplayer", "Clementine",
+        "MPlayer", "smplayer", "mpv",
+        "Gnome-mpv", "Rhythmbox", "Pragha",
     ]), ],
-    
-    
+
+    [Match(wm_class=[
+        "Steam", "Wine", "Zenity",
+        "PlayOnLinux",
+    ]), ],
 
 ]
 
@@ -280,7 +288,7 @@ keys = [
                 [mod, "control"], "Return", 
                 lazy.layout.toggle_split()                # Toggle between split and unsplit sides of stack
                 ),
-            # GUI Application
+            # GUI Apps
             Key(
                 [mod], "w", lazy.spawn(myBrowser)),   # , Match(title=["Chromium"])
             Key(
@@ -291,21 +299,21 @@ keys = [
                 [mod], "c", 
                 lazy.spawn("discord")),
             Key(
-                [mod], "F10", 
+                [mod], "t", 
                 lazy.spawn("spotify")
                 ),
             Key(
-                [mod, "shift"], "Return", 
+                [mod], "f", 
                 lazy.spawn("thunar")
                 ),
             Key(
-                [mod], "t", 
-                lazy.spawn("transmission-gtk")
+                [mod], "F1", 
+                lazy.spawn("pamac-manager")
                 ),
             Key(
                 [mod], "g", 
                 lazy.spawn("subl3",)),
-            # Terminal Application
+            # Terminal Apps
             Key(
                 [mod], "d", lazy.spawn("rofi -show run"), desc=("[Run Rofi]")),
             Key(
@@ -348,15 +356,15 @@ keys = [
                 ),
             ]
 
-#Workspaces 
 
 groups = []
 
-group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
+group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",]
 
-group_labels = ["", "", "", "", "", "", "", "", "",]
+group_labels = ["", "", "", "", "", "", "", "", "", "",]
 
-group_layouts = ["max", "monadtall", "monadtall", "bsp", "monadtall", "bsp", "max", "bsp", "bsp",]
+group_layouts = ["monadtall", "monadtall", "bsp", "max", "max", "max", "max", "max", "max", 
+"max",]
 
 
 for i in range(len(group_names)):
@@ -420,10 +428,10 @@ for i in groups:
 
 
 def init_layout_theme():
-    return {"border_width": 2,
-            "margin": 8,
-            "border_focus": "#CCA97E",
-            "border_normal": "#2b2b2b"
+    return {"border_width": 3,
+            "margin": 3,
+            "border_focus": "#800000",
+            "border_normal": "#50EDCE"
             }
 
 layout_theme = init_layout_theme()
@@ -446,8 +454,8 @@ extension_defaults = widget_defaults.copy()
   
 
 def init_screens():
-    return [Screen(bottom=bar.Gap(size=25),
-                   top=bar.Gap(size=38))
+    return [Screen(bottom=bar.Gap(size=35),
+                   top=bar.Gap(size=35))
             ]
             #Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=35)), 
             #Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=35))]
