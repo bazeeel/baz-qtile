@@ -92,5 +92,7 @@ alias fc='sudo fc-cache -fv'
 alias mirror="sudo reflector --protocol https --latest 50 --number 20 --sort rate --save /etc/pacman.d/mirrorlist"
 alias mirrors=mirror
 
-#shopt
+#youtube-dl
+alias youtube-dl='noglob youtube-dl'
 
+EDITOR=nano
