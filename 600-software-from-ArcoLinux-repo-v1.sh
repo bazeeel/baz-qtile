@@ -77,10 +77,13 @@ echo "removing all folders and files unnecessary for this desktop from .local"
 echo "################################################################"
 echo
 
+#Extra apps if needed
 sudo pacman -S --noconfirm --needed discord
 #sudo pacman -S --noconfirm --needed dropbox
 #sudo pacman -S --noconfirm --needed insync
-sudo pacman -S --noconfirm --needed spotify wmctrl
+sudo pacman -S --noconfirm --needed spotify 
+yay -S --noconfirm spotifywm-git 
+yay -S --noconfirm ranger-git
 
 #install zsh
 

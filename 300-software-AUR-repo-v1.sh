@@ -81,7 +81,7 @@ sh AUR/install-xcursor-breeze-v*.sh
 # these come always last
 
 sh AUR/install-hardcode-fixer-git-v*.sh
-sh AUR/install-vivaldi-and-ffmeg-codecs-v*.sh
+#sh AUR/install-vivaldi-and-ffmeg-codecs-v*.sh
 sh AUR/install-powerline-v*.sh
 sh AUR/install-powerline-fonts-git-v*.sh
 sh AUR/install-ranger-git-v*.sh
