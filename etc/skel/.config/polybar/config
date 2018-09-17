@@ -78,7 +78,7 @@ volume-max = #bf616a
 
 [bar/mainbar-bspwm]
 ; = ${env:MONITOR:fallback-value}
-monitor = ${env:MONITOR:DVI-D-0}
+monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 30
 offset-x = 0%
@@ -89,7 +89,8 @@ bottom = false
 separator = |
 
 override-redirect = true
-wm-restrack = bspwm
+#wm-restrack = bspwm
+enable-ipc = true
 
 
 fixed center= true
@@ -146,7 +147,7 @@ scroll-down = bspwm-deskprev
 
 [bar/mainbar-bar2]
 ; = ${env:MONITOR:fallback-value}
-monitor = ${env:MONITOR:HDMI1}
+monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 20
 ;offset-x = 1%
@@ -157,15 +158,15 @@ bottom = true
 separator = |
 
 
-background = #002F343F
-foreground = #EA440F
+background = #00000000
+foreground = ${colors.foreground}
 
 
 
 ;line-size = 4
 ;line-color = #aa[rrggbb]
 
-wm-restack = bspwm
+#wm-restack = bspwm
 override-redirect = true
 
 border-size = 0
@@ -216,7 +217,7 @@ polybar - A fast and easy-to-use status bar
 
 [bar/mainbar-qtile]
 ; = ${env:MONITOR:fallback-value}
-monitor = ${env:MONITOR:HDMI1}
+monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 30
 ;offset-x = 1%
@@ -619,7 +620,7 @@ format = <label-state>
 
 label-active =  %icon%
 label-active-foreground = #FE7C00
-label-active-background = #000
+label-active-background = #00000000
 label-active-padding = 2
 
 label-focused = %icon%
