@@ -1,0 +1,14 @@
+0
+/usr/share/backgrounds/arcolinux/fractal flower 2560x1440.jpg
+/usr/share/backgrounds/arcolinux/angel-girl-1920x1200.jpg
+/usr/share/backgrounds/arcolinux/earth-view-3840x2160.jpg
+/home/xeoncpu/.config/variety/Favorites/angel-girl-1920x1200.jpg
+/usr/share/backgrounds/arcolinux/grain-wood-grey-1920x1200.jpg
+/usr/share/backgrounds/arcolinux/cubic-3840x1080.jpg
+/usr/share/backgrounds/arcolinux/cluster-legacy-mono-slate-2560x1440-HD.jpg
+/usr/share/backgrounds/arcolinux/wooden-floor-pyramid.jpg
+/usr/share/backgrounds/arcolinux/nano-schematic-infraorange-3840x2400.jpg
+/usr/share/backgrounds/arcolinux/wood-and-nails-2560x1600.jpg
+/usr/share/backgrounds/arcolinux/rough-wood-2560x1600.jpg
+/usr/share/backgrounds/arcolinux/angel-girl-1920x1200.jpg
+/usr/share/backgrounds/arcolinux/cluster-legacy-mono-slate-2560x1440-HD.jpg
