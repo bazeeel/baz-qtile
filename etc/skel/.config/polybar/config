@@ -259,7 +259,7 @@ font-2 = NotoMono-Regular: size=13;0
 
 modules-left = ewmh
 modules-center = xwindow
-modules-right = memory2 cpu2 volume date 
+modules-right = memory2 cpu2 pavolume date 
 
 tray-detached = false
 tray-offset-x = 0
@@ -890,11 +890,11 @@ format-underline = #FFBB00
 type = custom/script
 tail = true
 label = %output%
-exec = ~/.config/bspwm/polybar/scripts/pavolume.sh --listen
+exec = ~/.config/polybar/scripts/pavolume.sh --listen
 click-right = exec pavucontrol
-click-left = ~/.config/bspwm/polybar/scripts/pavolume.sh --togmute
-scroll-up = ~/.config/bspwm/polybar/scripts/pavolume.sh --up
-scroll-down = ~/.config/bspwm/polybar/scripts/pavolume.sh --down
+click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
+scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
+scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
 #format-underline = #ffffff
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -1206,7 +1206,7 @@ format-background = ${colors.background}
 
 [module/infoerik]
 type = custom/script
-exec = ~/.config/bspwm/polybar/scripts/info.sh
+exec = ~/.config/polybar/scripts/info.sh
 ;exec = uname -m
 tail = false
 interval = 1024
