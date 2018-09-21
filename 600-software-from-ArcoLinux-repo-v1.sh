@@ -30,7 +30,7 @@ sudo pacman -S arcolinux-config-git --noconfirm --needed
 #sudo pacman -S arcolinux-local-git --noconfirm --needed
 sudo pacman -S arcolinux-neofetch-git --noconfirm --needed
 #sudo pacman -S arcolinux-neofetch-ascii-git --noconfirm --needed
-#sudo pacman -S arcolinux-nitrogen-git --noconfirm --needed
+sudo pacman -S arcolinux-nitrogen-git --noconfirm --needed
 #sudo pacman -S arcolinux-oblogout-bspwm  --noconfirm --needed
 #sudo pacman -S arcolinux-obmenu-generator-git --noconfirm --needed
 #sudo pacman -S arcolinux-openbox-configs-git --noconfirm --needed
@@ -79,11 +79,11 @@ echo
 
 #Extra apps if needed
 sudo pacman -S --noconfirm --needed discord
-#sudo pacman -S --noconfirm --needed dropbox
+sudo pacman -S --noconfirm --needed 
 #sudo pacman -S --noconfirm --needed insync
 sudo pacman -S --noconfirm --needed spotify 
 yay -S --noconfirm spotifywm-git 
-yay -S --noconfirm ranger-git
+yay -S --noconfirm polybar 
 
 #install zsh
 
