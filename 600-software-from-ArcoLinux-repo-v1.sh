@@ -77,25 +77,8 @@ echo "removing all folders and files unnecessary for this desktop from .local"
 echo "################################################################"
 echo
 
-#Extra apps if needed
-sudo pacman -S --noconfirm --needed discord
-sudo pacman -S --noconfirm --needed 
-#sudo pacman -S --noconfirm --needed insync
-sudo pacman -S --noconfirm --needed spotify 
-yay -S --noconfirm spotifywm-git 
-yay -S --noconfirm polybar 
-
-#install zsh
-
-yay -S oh-my-zsh-git antigen-git --noconfirm
-
-cp /usr/share/zsh/share/antigen.zsh ~/.antigen.zsh
-
-rm -rf ~/.antigen
-
-cp .zshrc ~/.zshrc
-
-chsh -s $( which zsh )
+yay -S powerline powerline-fonts-git
+yay -S spotifywm-git
 
 echo "################################################################"
 echo "Finish copying"
