@@ -30,7 +30,7 @@ sudo pacman -S arcolinux-config-git --noconfirm --needed
 #sudo pacman -S arcolinux-local-git --noconfirm --needed
 sudo pacman -S arcolinux-neofetch-git --noconfirm --needed
 #sudo pacman -S arcolinux-neofetch-ascii-git --noconfirm --needed
-sudo pacman -S arcolinux-nitrogen-git --noconfirm --needed
+#sudo pacman -S arcolinux-nitrogen-git --noconfirm --needed
 #sudo pacman -S arcolinux-oblogout-bspwm  --noconfirm --needed
 #sudo pacman -S arcolinux-obmenu-generator-git --noconfirm --needed
 #sudo pacman -S arcolinux-openbox-configs-git --noconfirm --needed
@@ -46,7 +46,7 @@ sudo pacman -S arcolinux-root-git --noconfirm --needed
 #sudo pacman -S arcolinux-termite-themes-git --noconfirm --needed
 #sudo pacman -S arcolinux-tint2-git --noconfirm --needed
 #sudo pacman -S arcolinux-tint2-themes-git --noconfirm --needed
-sudo pacman -S arcolinux-variety-git --noconfirm --needed
+#sudo pacman -S arcolinux-variety-git --noconfirm --needed
 sudo pacman -S arcolinux-wallpapers-git --noconfirm --needed
 sudo pacman -S arcolinux-xfce-thunar-git --noconfirm --needed
 sudo pacman -S arcolinux-lightdm-gtk-greeter --noconfirm --needed
@@ -77,8 +77,11 @@ echo "removing all folders and files unnecessary for this desktop from .local"
 echo "################################################################"
 echo
 
+#Some extra software
 yay -S powerline powerline-fonts-git
 yay -S spotifywm-git
+yay -S polybar 
+yay -S antigen-git
 
 echo "################################################################"
 echo "Finish copying"

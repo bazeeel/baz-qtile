@@ -67,7 +67,7 @@ sudo pacman -S --noconfirm --needed transmission-gtk
 echo "Installing category Multimedia"
 
 #sudo pacman -S --noconfirm --needed clementine
-#sudo pacman -S --noconfirm --needed deadbeef
+sudo pacman -S --noconfirm --needed deadbeef
 sudo pacman -S --noconfirm --needed mpv
 #sudo pacman -S --noconfirm --needed openshot
 #sudo pacman -S --noconfirm --needed pragha
@@ -92,8 +92,8 @@ echo "Installing category Other"
 echo "Installing category System"
 
 sudo pacman -S --noconfirm --needed arc-gtk-theme
-sudo pacman -S --noconfirm --needed archey3
-sudo pacman -S --noconfirm --needed baobab
+#sudo pacman -S --noconfirm --needed archey3
+#sudo pacman -S --noconfirm --needed baobab
 #sudo pacman -S --noconfirm --needed bleachbit
 sudo pacman -S --noconfirm --needed curl
 sudo pacman -S --noconfirm --needed dconf-editor
