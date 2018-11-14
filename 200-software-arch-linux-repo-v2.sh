@@ -142,7 +142,7 @@ sudo pacman -S --noconfirm --needed rxvt-unicode
 sudo pacman -S --noconfirm --needed urxvt-perls
 sudo pacman -S --noconfirm --needed xdg-user-dirs
 sudo pacman -S --noconfirm --needed zenity
-#sudo pacman -S --noconfirm --needed
+sudo pacman -S --noconfirm --needed python-requests
 
 
 ###############################################################################################
