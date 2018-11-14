@@ -83,6 +83,18 @@ yay -S spotifywm-git
 yay -S polybar 
 yay -S antigen-git
 
+#install zsh
+
+yay -S oh-my-zsh-git antigen-git --noconfirm
+
+cp /usr/share/zsh/share/antigen.zsh ~/.antigen.zsh
+
+rm -rf ~/.antigen
+
+cp .zshrc ~/.zshrc
+
+chsh -s $( which zsh )
+
 echo "################################################################"
 echo "Finish copying"
 echo "################################################################"
