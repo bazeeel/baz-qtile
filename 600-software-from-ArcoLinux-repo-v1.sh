@@ -31,7 +31,7 @@ sudo pacman -S arcolinux-config-git --noconfirm --needed
 sudo pacman -S arcolinux-neofetch-git --noconfirm --needed
 #sudo pacman -S arcolinux-neofetch-ascii-git --noconfirm --needed
 #sudo pacman -S arcolinux-nitrogen-git --noconfirm --needed
-#sudo pacman -S arcolinux-oblogout-bspwm  --noconfirm --needed
+sudo pacman -S arcolinux-oblogout-bspwm  --noconfirm --needed
 #sudo pacman -S arcolinux-obmenu-generator-git --noconfirm --needed
 #sudo pacman -S arcolinux-openbox-configs-git --noconfirm --needed
 #sudo pacman -S arcolinux-openbox-themes-git --noconfirm --needed
@@ -78,10 +78,6 @@ echo "################################################################"
 echo
 
 #Some extra software
-yay -S powerline powerline-fonts-git
-yay -S spotifywm-git
-yay -S polybar 
-yay -S antigen-git
 
 #install zsh
 
@@ -91,7 +87,7 @@ cp /usr/share/zsh/share/antigen.zsh ~/.antigen.zsh
 
 rm -rf ~/.antigen
 
-cp .zshrc ~/.zshrc
+cp ~/baz-qtile/etc/skel/.zshrc ~/.zshrc
 
 chsh -s $( which zsh )
 

@@ -23,12 +23,14 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+# Update Kriszián Veress (krive) 2018-09-16
+
 
 import os
 import re
 import socket
 import subprocess
-from libqtile.config import Drag, Key, Screen, Group, Drag, Click, Match, Rule, ScratchPad, DropDown
+from libqtile.config import Drag, Key, Screen, Group, Drag, Click, Rule, ScratchPad, DropDown
 from libqtile.command import lazy, Client
 from libqtile import layout, bar, widget, hook
 from libqtile.widget import Spacer
@@ -36,31 +38,21 @@ from libqtile.widget import Spacer
 from libqtile.manager import Qtile
 
 
-try:
-    from typing import List  # noqa: F401
-except ImportError:
-    pass
 
+
+
+#Window buttom
 mod = "mod4"
+# Alt bottom
+#mod1 = "mod1"
+home = os.path.expanduser('~')
+
+
 myTerm="urxvt"
-myBrowser="chromium"
+myBrowser="vivaldi-stable"
 
 
-cls_grp_dict = {
-    "luakit": "1", "Firefox": "1", "Opera": "1", "Google-chrome": "1",
-    "Chromium": "1", "Vivaldi-stable": "1", "Zathura": "2", "libreoffice-writer": "2", "libreoffice": "2",
-    "Leafpad": "2", "kate": "2", "Pluma": "2", "Mousepad": "2", "kwrite": "2", "Geany": "2", "Gedit": "2", 
-    "Code": "2", "Atom": "2", "Subl3": "2", "UXTerm": "3", "Termite": "3", "Terminator": "3", "URxvt": "3", "XTerm": "3", 
-    "mlterm": "3", "Lxterminal": "3", "discord": "4", "Gimp": "5", "Gthumb":"5", "Ristretto":"5", "Gpicview":"5", 
-    "VirtualBox": "6", "Transmission-gtk": "6", "calibre": "6", "Pamac-updater": "6", "mpv": "7", "vlc": "7", "MPlayer": "7", "smplayer": "7", 
-    "Gnome-mpv": "7", "Pcmanfm": "8", "Thunar": "8", "thunar": "8", "dolphin": "8", "Clementine": "9",
-    "Rhythmbox": "9", "Pragha": "9", "Spotify": "9",
-}
 
-role_grp_dict = {
-    
-
-}
 
 group_exclusives = [
     False, False, False,
@@ -83,67 +75,6 @@ group_inits = [
 ]
 
 
-group_matches = [
-    
-    # 1 Web
-    [Match(wm_class=[
-        "luakit", "Firefox", "Opera", "Google-chrome",
-        "Chromium", "Vivaldi-stable", "Midori",
-        "Dillo", "Netsurf-gtk3", "QupZilla",
-        "Uget-gtk", "Tor Browser", "Waterfox",
-    ]), ],
-    
-    # 2 Edit
-    [Match(wm_class=[
-        "Zathura", "libreoffice-writer", "libreoffice",
-        "Leafpad", "kate", "Pluma", "Mousepad", "kwrite",
-        "Geany", "Gedit", "Code", "Atom", "Subl3",
-    ]), ],
-    
-    # 3 Term
-    [Match(wm_class=[
-        "UXTerm", "Termite", "Terminator",
-        "URxvt",
-        "XTerm", "mlterm", "Lxterminal",
-    ]), ],
-    
-    # 4 Chat
-    [Match(wm_class=[
-        "discord",
-    ]), ],
-    
-    # 5 ImageViewers
-    [Match(wm_class=[
-        "Gimp", "Gthumb", "Ristretto", 
-        "Gpicview",
-    ]), ],
-    
-    # 6 Boxes
-    [Match(wm_class=[
-        "VirtualBox", "calibre",
-        "Pamac-updater", "Transmission-gtk",
-    ]), ],   
-    
-    # 7 Video
-    [Match(wm_class=[
-        "mpv", "vlc",
-        "MPlayer", "smplayer", "Gnome-mpv",
-    ]), ],
-    
-    # 8 Filemanager
-    [Match(wm_class=[
-        "Pcmanfm", "Thunar", "thunar", "dolphin",
-    ]), ],
-    
-    # 9 Music
-    [Match(wm_class=[
-        "Clementine",
-        "Rhythmbox", "Pragha", "Spotify", 
-    ]), ],
-    
-    
-
-]
 
 
 @lazy.function
@@ -159,17 +90,6 @@ def window_to_next_group(qtile):
         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
 
 
-@hook.subscribe.startup_once
-def start_once():
-    home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/autostart.sh'])
-
-    @hook.subscribe.client_managed
-    def go_to_group(window):
-        if (window.window.get_wm_class()[1] in cls_grp_dict.keys()
-                or window.window.get_wm_window_role() in role_grp_dict.keys()):
-            window.group.cmd_toscreen()
-
 
 
 keys = [
@@ -179,27 +99,25 @@ keys = [
     #########################
     Key([mod], "a", lazy.spawn('pamac-manager')),
     Key([mod], "c", lazy.spawn('discord')),
+    Key([mod], "d", lazy.spawn("rofi -show run")),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "g", lazy.spawn('subl3')),    
-    Key([mod], "e", lazy.spawn('urxvt -e ranger')),
-    Key([mod], "p", lazy.spawn('pragha')),
-    Key([mod], "y", lazy.spawn('spotify')),
-    Key([mod], "d", lazy.spawn('rofi -show run')),
+    Key([mod], "h", lazy.spawn(myTerm+' -e htop')),
+    Key([mod], "m", lazy.layout.maximize()),
+    Key([mod], "n", lazy.layout.normalize()),
     Key([mod], "q", lazy.window.kill()),
-    Key([mod], "r", lazy.spawncmd()),
-    Key([mod], "s", lazy.spawn('rofi-theme-selector')),
+    Key([mod], "r", lazy.spawn('rofi-theme-selector')),
     Key([mod], "t", lazy.spawn('termite')),
     Key([mod], "v", lazy.spawn('pavucontrol')),
-    Key([mod], "w", lazy.spawn('chromium')),
+    Key([mod], "w", lazy.spawn(myBrowser)),
     Key([mod], "x", lazy.spawn('oblogout')),
-    Key([mod], "h", lazy.spawn('urxvt -e htop')),
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "Left", lazy.screen.prev_group()),
     Key([mod], "Right", lazy.screen.next_group()),
     #########################
     # SUPER + FUNCTION KEYS #
     #########################
-    #Key([mod], "F1", lazy.spawn('vivaldi-stable')),
+    Key([mod], "F1", lazy.spawn(myBrowser)),
     Key([mod], "F2", lazy.spawn('atom')),
     Key([mod], "F3", lazy.spawn('inkscape')),
     Key([mod], "F4", lazy.spawn('gimp')),
@@ -208,21 +126,22 @@ keys = [
     Key([mod], "F7", lazy.spawn('virtualbox')),
     Key([mod], "F8", lazy.spawn('thunar')),
     Key([mod], "F9", lazy.spawn('evolution')),
-    Key([mod], "F10", lazy.window.toggle_floating()),
+    Key([mod], "F10", lazy.spawn("spotify")),
     Key([mod], "F11", lazy.spawn('rofi -show run -fullscreen')),
     Key([mod], "F12", lazy.spawn('rofi -show run')),
     #########################
     # SUPER + SHIFT KEYS    #
     #########################
-    Key([mod, "shift"], "Return", lazy.spawn('thunar')),
     Key([mod, "shift"], "m", lazy.spawn("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")),
     Key([mod, "shift"], "q", lazy.shutdown()),
     Key([mod, "shift"], "r", lazy.restart()),
-    Key([mod, "shift"], "r", lazy.restart()),
+    Key([mod, "shift"], "Return", lazy.spawn('thunar')),
     Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
     Key([mod, "shift"], "Left", lazy.layout.shuffle_left()),
     Key([mod, "shift"], "Right", lazy.layout.shuffle_right()),
+    Key([mod], "Tab", lazy.next_layout()),
+    Key([mod], "space", lazy.prev_layout()),
     #########################
     # CONTROL + ALT KEYS    #
     #########################
@@ -237,25 +156,25 @@ keys = [
     Key(["mod1", "control"], "m", lazy.spawn('xfce4-settings-manager')),
     Key(["mod1", "control"], "o", lazy.spawn('~/.config/bspwm/scripts/compton-toggle.sh')),
     Key(["mod1", "control"], "r", lazy.spawn('rofi-theme-selector')),
-    #Key(["mod1", "control"], "s", lazy.spawn('subl3')),
+    Key(["mod1", "control"], "s", lazy.spawn('subl3')),
     Key(["mod1", "control"], "t", lazy.spawn('termite')),
     Key(["mod1", "control"], "u", lazy.spawn('pavucontrol')),
-    Key(["mod1", "control"], "v", lazy.spawn('vivaldi-stable')),
+    Key(["mod1", "control"], "v", lazy.spawn(myBrowser)),
     Key(["mod1", "control"], "w", lazy.spawn('atom')),
     Key(["mod1", "control"], "Return", lazy.spawn('termite')),
     #########################
     # ALT + ... KEYS        #
     #########################
-    Key(["mod1"], "t", lazy.spawn('variety -t')),
-    #Key(["mod1"], "n", lazy.spawn('variety -n')),
-    Key(["mod1"], "n", lazy.spawn('nitrogen --random --set-scaled')),
-    Key(["mod1"], "p", lazy.spawn('variety -p')),
     Key(["mod1"], "f", lazy.spawn('variety -f')),
+    Key(["mod1"], "t", lazy.spawn('variety -t')),
+    Key(["mod1"], "n", lazy.spawn('variety -n')),
+    Key(["mod1"], "p", lazy.spawn('variety -p')),
     Key(["mod1"], "Left", lazy.spawn('variety -p')),
-    #Key(["mod1"], "Right", lazy.spawn('variety -n')),
-    Key(["mod1"], "Right", lazy.spawn('nitrogen --random --set-scaled')),
+    Key(["mod1"], "Right", lazy.spawn('variety -n')),
     Key(["mod1"], "Up", lazy.spawn('variety --pause')),
     Key(["mod1"], "Down", lazy.spawn('variety --resume')),
+    Key(["mod1"], "Tab", lazy.layout.next()),
+    Key(["mod1"], "space", lazy.layout.previous()),
     Key(["mod1"], "F2", lazy.spawn('gmrun')),
     Key(["mod1"], "F3", lazy.spawn('xfce4-appfinder')),
     #########################
@@ -274,7 +193,7 @@ keys = [
     #########################
     Key([mod, "shift"], "Print", lazy.spawn('gnome-screenshot -i')),
     Key([mod], "Print", lazy.spawn('xfce4-screenshooter')),
-    Key([], "Print", lazy.spawn('scrot ArcoLinuxD-%Y-%m-%d-%s_screenshot_$wx$h.jpg -e mv $f $$(xdg-user-dir Pictures)')),
+    Key([], "Print", lazy.spawn("scrot " + home + "/Képek/ArcoLinuxD_%Y_%m_%d_%H_%M_%S.jpg")),
     #########################
     #     MULTIMEDIA KEYS   #
     #########################
@@ -283,14 +202,11 @@ keys = [
     # Qtile LAYOUT KEYS     #
     #########################
     Key([mod], "k", lazy.layout.down()),
-    Key([mod], "Down", lazy.layout.down()),
-    Key([mod], "j", lazy.layout.up()),
-    Key([mod], "Up", lazy.layout.up()),
-    Key([mod], "l", lazy.layout.right()),
-    #Key([mod], "Right", lazy.layout.right()),
-    #Key([mod], "h", lazy.layout.left()),
-    #Key([mod], "Left", lazy.layout.left()),
-    # Grow size up, down, left, and right
+    Key([mod, "mod1"], "Down", lazy.layout.down()),
+    Key([mod, "mod1"], "Up", lazy.layout.up()),
+    Key([mod, "mod1"], "Right", lazy.layout.right()),
+    Key([mod, "mod1"], "Left", lazy.layout.left()),
+    #Grow size up, down, left, and right
     Key([mod, "control"], "l",
         lazy.layout.grow_right(),
         lazy.layout.grow(),
@@ -336,13 +252,7 @@ keys = [
         lazy.layout.increase_nmaster(),
         ),
 
-    Key([mod], "m",
-        lazy.layout.maximize(),
-        ),
-
-    Key([mod], "n",
-        lazy.layout.normalize(),
-        ),
+    
 #########################################################
     Key([mod, "mod1"], "k", lazy.layout.flip_up()),
     Key([mod, "mod1"], "j", lazy.layout.flip_down()),
@@ -351,8 +261,7 @@ keys = [
     Key([mod, "mod1"], "h", lazy.layout.flip_left()),
 ##########################################################
     # Switch window focus to other pane(s) of stack
-    Key(["mod1"], "Tab", lazy.layout.next()),
-    Key(["mod1"], "space", lazy.layout.previous()),
+    
     # Move windows up or down in current stack
     Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
     Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
@@ -362,22 +271,13 @@ keys = [
     Key([mod, "shift"], "Right", lazy.layout.shuffle_right()),
     Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
     Key([mod, "shift"], "Left", lazy.layout.shuffle_left()),
-    # Switch Groups using a prompt
-    #Key([mod], "g", lazy.switchgroup()),
+    
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout()),
-    Key([mod], "space", lazy.prev_layout()),
+    
     Key([mod, "shift"], "f", lazy.window.toggle_floating()),
     # Swap panes of split stack
-    Key([mod, "shift"], "space",
-        lazy.layout.rotate()
-        ),
-    # Reload Qtile
-    Key([mod, "shift"], "r", lazy.restart()),
-    # Exit Qtile
-    Key([mod, "shift"], "x", lazy.shutdown()),
-
-    #Key([], "F10", to_urgent()),
+    Key([mod, "shift"], "space", lazy.layout.rotate()),
+    
 
     # Media player controls
     Key([], "XF86AudioPlay", lazy.spawn("/usr/bin/playerctl play")),
@@ -387,31 +287,26 @@ keys = [
 
 
     # Pulse Audio controls
-    Key([], "XF86AudioMute",
-        lazy.spawn("/usr/bin/pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle")),
-    Key([], "XF86AudioLowerVolume",
-        lazy.spawn("/usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5%")),
-    Key([], "XF86AudioRaiseVolume",
-        lazy.spawn("/usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%"))
+    Key([], "XF86AudioMute", lazy.spawn("/usr/bin/pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("/usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5%")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("/usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%"))
 ]
 
-
-#Workspaces 
 
 groups = []
 
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
 
-group_labels = ["", "", "", "", "", "", "", "", "",]
+group_labels = ["", "", "", "", "", "", "", "", "",]
 
-group_layouts = ["max", "monadtall", "monadwide", "bsp", "monadtall", "bsp", "max", "bsp", "monadwide",]
+group_layouts = ["max", "monadtall", "bsp", "max", "max", "max", "max", "max", "max",]
 
 
 for i in range(len(group_names)):
     groups.append(
         Group(
             name=group_names[i],
-            matches=group_matches[i],
+            #matches=group_matches[i],
             exclusive=group_exclusives[i],
             layout=group_layouts[i].lower(),
             persist=group_persists[i],
@@ -430,48 +325,13 @@ for i in groups:
 
 
 
-#my_group = ["", "", "", "", "", "", "",]
-
-# group layout
-
-#for i in my_group:
-#    if i == "":
-#        groups.append(Group(i, layout = "monadtall"))
-#    elif i == "":
-#        groups.append(Group(i, layout = "monadtall"))
-#    elif i == "":
-#        groups.append(Group(i, layout = "bsp"))
-#    else:
-#        groups.append(Group(i, layout = "max"))
-
-#groups.append(ScratchPad("s", [
-#        # define a drop down terminal.
-#        # it is placed in the upper third of screen by default.
-#        DropDown("term", "urxvt", opacity=0.8),
-
-        # define another terminal exclusively for qshell at different position
-#        DropDown("qshell", "urxvt -hold -e qshell",
-#                 x=0.05, y=0.4, width=0.9, height=0.6, opacity=0.9,
-#                 on_focus_lost_hide=True)
-#        
-#         ])), 
-
-# Add numeric key Group
-#for c, name in enumerate(my_group, 1):
-#    keys.append(
-#            Key([mod], str(c), lazy.group[name].toscreen())
-#            )
-#    keys.append(
-#            Key([mod, "shift"], str(c), lazy.window.togroup(name))
-#            )
-
 
 
 def init_layout_theme():
     return {"border_width": 2,
-            "margin": 8,
-            "border_focus": "#CCA97E",
-            "border_normal": "#2b2b2b"
+            "margin": 10,
+            "border_focus": "#2b2b2b",
+            "border_normal": "#CCA97E",
             }
 
 layout_theme = init_layout_theme()
@@ -495,8 +355,8 @@ extension_defaults = widget_defaults.copy()
   
 
 def init_screens():
-    return [Screen(bottom=bar.Gap(size=25),
-                   top=bar.Gap(size=38))
+    return [Screen(bottom=bar.Gap(size=20),
+                   top=bar.Gap(size=35))
             ]
             #Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=35)), 
             #Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=35))]
@@ -515,6 +375,102 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 main = None
+
+@hook.subscribe.startup_once
+def start_once():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/qtile/autostart.sh'])
+
+#@hook.subscribe.client_managed
+#def go_to_group(window):
+#    if (window.window.get_wm_class()[1] in cls_grp_dict.keys()
+#      or window.window.get_wm_window_role() in role_grp_dict.keys()):
+#       window.group.cmd_toscreen()
+
+
+#def go_to_group(window):
+ #   if window.window.get_wm_class()[1] in cls_grp_dict.keys():
+ #      window.group.cmd_toscreen()
+
+
+
+
+@hook.subscribe.client_new
+def set_floating(window):
+    if (window.window.get_wm_transient_for()
+            or window.window.get_wm_type() in floating_types):
+        window.floating = True
+
+@hook.subscribe.client_new
+def agroup(client):
+    apps = { 
+#########################################################################################
+#################################BROWSER#################################################    
+            # 1. 
+            #"Navigator": "1", "class_name": "firefox",
+            "google-chrome": "1", "class_name": "google-chrome",
+            "vivaldi-stable": "1", "class_name": "vivaldi-stable",
+#########################################################################################            
+################################EDIT#####################################################
+            # 2. 
+            "subl3": "2", "class_name": "subl3",
+            "leafpad": "2", "class_name": "leafpad",
+#########################################################################################
+##############################SHELL######################################################            
+            # 3. 
+            "urxvt": "3", "class_name": myTerm,
+#########################################################################################
+##############################CHAT######################################################            
+            # 4. 
+            "discord": "4", "class_name": "discord",
+#############################IMAGE VIEWERS###############################################
+########################################################################################
+            # 5. 
+            "gimp": "5", "class_name": "gimp",
+            #"darktable":, "class_name": "darktable",
+###########################################################################################            
+#############################BOXES#########################################################
+            # 6. 
+            "VirtualBox": "6", "class_name": "virtualbox",
+            "transmission-gtk": "6", "class_name": "Transmission-gtk",
+            "Steam": "6", "class_name": "steam",
+##########################################################################################            
+#############################VIDEO########################################################            
+            # 7. 
+            "vlc": "7", "class_name": "vlc",
+            "gl": "7", "class_name": "mpv",
+##########################################################################################            
+#############################FILE MANAGER#################################################
+            # 8.
+            "thunar": "8", "class_name": "thunar", 
+            "pcmanfm": "8", "class_name": "pcmanfm",
+
+#########################################################################################
+#############################MUSIC#######################################################
+            # 9. Music
+            "spotify": "9", "class_name": "spotify",
+
+#########################################################################################            
+
+            
+
+            }
+
+    wm_class = client.window.get_wm_class()[0]
+    group = apps.get(wm_class, None)
+    if group:
+        client.togroup(group)
+        client.group.cmd_toscreen()
+
+
+
+
+
+floating_types = ["notification", "toolbar", "splash", "dialog",
+                  "utility", "menu", "dropdown_menu", "popup_menu", "tooltip,dock",
+                  ]
+
+
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
@@ -530,9 +486,9 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'confirmreset'},  # gitk
     {'wmclass': 'makebranch'},  # gitk
     {'wmclass': 'maketag'},  # gitk
-    {'wname': "Openbox Logout"},
-    {'wname': 'branchdialog'},
-    #{'wmclass': 'spotify'},      # gitk
+    {'wname': "Openbox Logout"}, 
+    #{'wname': "Spotify"},
+    {'wname': 'branchdialog'},      # gitk
     {'wname': 'pinentry'},  # GPG key password entry
     {'wmclass': 'ssh-askpass'},  # ssh-askpass
 
