@@ -1,3 +1,4 @@
+#!/bin/sh
 
 
 #LAUNCHERS
@@ -11,6 +12,6 @@ feh --randomize --bg-scale ~/.config/qtile/Képek/*
 #nm-applet &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #pasystray &
-conky -c $HOME/.config/conky/4-cpu-ET-Arcolinux-Fofo-LUA.conkyrc &
+#conky -c $HOME/.config/conky/4-cpu-ET-Arcolinux-Fofo-LUA.conkyrc &
 compton --config  ~/.config/qtile/compton.conf &
 ~/.config/polybar/launch.sh &

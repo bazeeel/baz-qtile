@@ -329,7 +329,7 @@ for i in groups:
 
 def init_layout_theme():
     return {"border_width": 2,
-            "margin": 10,
+            "margin": 5,
             "border_focus": "#2b2b2b",
             "border_normal": "#CCA97E",
             }
