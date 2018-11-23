@@ -38,7 +38,7 @@ Layout=$(setxkbmap -print | awk -F"+" '/xkb_symbols/{for ( i=1; i <= NF; i++) su
  echo -en "     $GtkTheme"
  echo -en "     $GtkIcon"
  echo -en "     $GtkFont"
- echo -en "     $BIRTH"
+ #echo -en "     $BIRTH"
  echo -en "     $Packages"
  echo -en "    $Layout"
  #echo -en "   $USER"

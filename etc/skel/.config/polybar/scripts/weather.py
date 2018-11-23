@@ -14,8 +14,8 @@
 
 import requests
 
-CITY = "2803138"
-API_KEY = "52c37ed729a408cd4e3647aa39422e71"
+CITY = "3045190"
+API_KEY = "6577cbaaed6d8e61f4414fa5af6b0a2c"
 UNITS = "Metric"
 UNIT_KEY = "C"
 #UNIT_KEY = "F"

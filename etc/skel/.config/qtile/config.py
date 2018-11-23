@@ -280,10 +280,10 @@ keys = [
     
 
     # Media player controls
-    Key([], "XF86AudioPlay", lazy.spawn("/usr/bin/playerctl play")),
-    Key([], "XF86AudioPause", lazy.spawn("/usr/bin/playerctl pause")),
-    Key([], "XF86AudioNext", lazy.spawn("/usr/bin/playerctl next")),
-    Key([], "XF86AudioPrev", lazy.spawn("/usr/bin/playerctl previous")),
+    Key([], "XF86Mail", lazy.spawn("xdg-open https://mail.google.com")),
+    Key([], "XF86Explorer", lazy.spawn("thunar")),
+    Key([], "XF86HomePage", lazy.spawn("vivaldi-stable")),
+    Key([], "XF86Search", lazy.spawn("rofi -show run")),
 
 
     # Pulse Audio controls
@@ -299,7 +299,7 @@ group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
 
 group_labels = ["", "", "", "", "", "", "", "", "",]
 
-group_layouts = ["max", "monadtall", "bsp", "max", "max", "max", "max", "max", "max",]
+group_layouts = ["max", "MonadWide", "bsp", "max", "max", "max", "MonadTall", "max", "max",]
 
 
 for i in range(len(group_names)):
@@ -418,7 +418,7 @@ def agroup(client):
 #########################################################################################
 ##############################SHELL######################################################            
             # 3. 
-            "urxvt": "3", "class_name": myTerm,
+            #"urxvt": "3", "class_name": myTerm,
 #########################################################################################
 ##############################CHAT######################################################            
             # 4. 

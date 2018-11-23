@@ -96,3 +96,6 @@ alias remove='sudo pacman -R'
 
 alias uwrite='sudo ddrescue -D --force'
 
+#Recently installed packages
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -50"
+

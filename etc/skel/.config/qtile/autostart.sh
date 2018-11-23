@@ -15,3 +15,4 @@ feh --randomize --bg-scale ~/.config/qtile/Képek/*
 #conky -c $HOME/.config/conky/4-cpu-ET-Arcolinux-Fofo-LUA.conkyrc &
 compton --config  ~/.config/qtile/compton.conf &
 ~/.config/polybar/launch.sh &
+plank &
