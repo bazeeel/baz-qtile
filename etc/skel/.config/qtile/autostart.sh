@@ -8,11 +8,12 @@
 nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }" &
 
 
-feh --randomize --bg-scale ~/.config/qtile/Képek/*
+feh --randomize --bg-fill ~/.config/qtile/Képek/*
 #nm-applet &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #pasystray &
 #conky -c $HOME/.config/conky/4-cpu-ET-Arcolinux-Fofo-LUA.conkyrc &
 compton --config  ~/.config/qtile/compton.conf &
 ~/.config/polybar/launch.sh &
-plank &
+~/.config/polybar/gmail/auth.py &
+

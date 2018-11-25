@@ -64,7 +64,7 @@ echo "Installing category System"
 sh AUR/install-downgrade-v*.sh
 sh AUR/install-inxi-v*.sh
 sh AUR/install-neofetch-v*.sh
-#sh AUR/install-numix-circle-icon-theme-git-v*.sh
+sh AUR/install-numix-circle-icon-theme-git-v*.sh
 #sh AUR/install-oxy-neon-v*.sh
 #sh AUR/install-pamac-aur-v*.sh
 #sh AUR/install-paper-icon-theme-git-v*.sh
@@ -82,11 +82,16 @@ sh AUR/install-xcursor-breeze-v*.sh
 
 sh AUR/install-hardcode-fixer-git-v*.sh
 #sh AUR/install-vivaldi-and-ffmeg-codecs-v*.sh
-#sh AUR/install-powerline-v*.sh
-#sh AUR/install-powerline-fonts-git-v*.sh
+sh AUR/install-powerline-v*.sh
+sh AUR/install-powerline-fonts-git-v*.sh
 sh AUR/install-ranger-git-v*.sh
 #sh AUR/install-viber-v*.sh
-#sudo hardcode-fixer
+sudo hardcode-fixer
+
+###############################################################
+yay -S polybar --noconfirm
+yay -S python-requests --noconfirm
+yay -S python-pip --noconfirm
 
 echo "################################################################"
 echo "####        Software from AUR Repository installed        ######"

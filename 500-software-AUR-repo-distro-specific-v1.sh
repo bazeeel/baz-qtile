@@ -21,6 +21,10 @@ echo "AUR - DESKTOP SPECIFIC APPLICATIONS "
 
 sh AUR/install-yad-v*.sh
 
+yay -S python-pip --noconfirm
+
+sudo pip install --upgrade oauth2client google-api-python-client
+
 echo "################################################################"
 echo "####       Software from AUR-DS folder installed          ######"
 echo "################################################################"
